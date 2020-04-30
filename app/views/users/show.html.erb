@@ -1,8 +1,10 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
-  <% if  @user != current_user && current_user.friend?(@user) == false %>
-    <%= button_to 'request',  "/friend_request?id=#{@user.id}", class: 'btn btn-secondary' %> 
-  <% end %>
+        <% if current_user.pending_friends.include?(@user) %>
+          <p>PENDING</p>
+        <% elsif @user != current_user && current_user.friend?(@user) == false %>
+          <%= button_to 'request',  "/friend_request?id=#{@user.id}", class: 'btn btn-secondary' %>
+        <% end %>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
