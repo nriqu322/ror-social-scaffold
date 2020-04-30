@@ -30,20 +30,20 @@ class User < ApplicationRecord
     friendships.map{|friendship| friendship.friend if !friendship.confirmed}.compact
   end
 
-    # Users who have requested to be friends (the one that receives the invite checks who send the invite)
-    def friend_requests
-      inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact
-    end
+  # Users who have requested to be friends (the one that receives the invite checks who send the invite)
+  def friend_requests
+    inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact
+  end
 
-    # Set confirmation to true
-    def confirm_friend(user)
-      friendship = inverse_friendships.find{|friendship| friendship.user == user}
-      friendship.confirmed = true
-      friendship.save
-    end
+  # Set confirmation to true
+  def confirm_friend(user)
+    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+    friendship.confirmed = true
+    friendship.save
+  end
 
-    # Fiend a specific friend
-    def friend?(user)
-      friends.include?(user)
-    end
+  # Fiend a specific friend
+  def friend?(user)
+    friends.include?(user)
+  end
 end
