@@ -5,8 +5,9 @@ class FriendshipsController < ApplicationController
         redirect_to root_path
     end
 
-    def destroy
-        current_user.decline_friend(params[:user_id])
+    def edit
+        fs = Friendship.where(user_id: params[:id], friend_id: current_user.id)
+        Friendship.destroy(fs.ids)
         redirect_to users_path
     end
 end

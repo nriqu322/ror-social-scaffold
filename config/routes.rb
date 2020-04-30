@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   post '/friend_request', to: 'friendships#create'
-  delete '/decline_friend', to: 'frienships#destroy'
-
+  post '/friend_answer', to: 'friendships#edit'
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
