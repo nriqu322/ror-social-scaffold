@@ -1,5 +1,6 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
+  <%= button_to 'request',  "/friend_request?id=#{@user.id}", class: 'btn btn-secondary' %> 
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
