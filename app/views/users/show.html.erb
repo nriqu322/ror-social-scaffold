@@ -2,6 +2,9 @@
   <h2><%= "Name: #{@user.name}" %></h2>
         <% if current_user.pending_friends.include?(@user) %>
           <p>PENDING</p>
+        <% elsif current_user.friend_requests.include?(@user) %>
+          <%= button_to 'accept', "/friend_answer?id=#{@user.id}&choice=1", class: 'btn btn-secondary' %>
+          <%= button_to 'decline', "/friend_answer?id=#{@user.id}&choice=0", class: 'btn btn-secondary' %>
         <% elsif @user != current_user && current_user.friend?(@user) == false %>
           <%= button_to 'request',  "/friend_request?id=#{@user.id}", class: 'btn btn-secondary' %>
         <% end %>
