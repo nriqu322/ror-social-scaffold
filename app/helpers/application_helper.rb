@@ -15,4 +15,16 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def friendship_decision(user)
+    if current_user.pending_friends.include?(user)
+      'PENDING'
+    elsif current_user.friend_requests.include?(user)
+      link_to('<button>ACCEPT</button>'.html_safe, accept_friend_path(id: user.id)) +
+        ' ' +
+        link_to('<button>DECLINE</button>'.html_safe, decline_friend_path(id: user.id))
+    elsif user != current_user && current_user.friend?(user) == false
+      link_to('request', friend_request_path(id: user.id), class: 'btn btn-secondary')
+    end
+  end
 end
