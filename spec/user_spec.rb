@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
       expect(@user.friend?(@user2)).to be(true)
     end
 
-    it 'checks if two users are friends' do
+    it 'checks if two users are friends (bi-directional)' do
       expect(@user2.friend?(@user)).to be(true)
     end
   end
