@@ -20,11 +20,12 @@ module ApplicationHelper
     if current_user.pending_friends.include?(user)
       'PENDING'
     elsif current_user.friend_requests.include?(user)
-      link_to('<button id = "accept-btn">ACCEPT</button>'.html_safe, accept_friend_path(id: user.id)) +
+      link_to('<button>ACCEPT</button>'.html_safe, accept_friend_path(id: user.id), id: 'accept-btn') +
         ' ' +
-        link_to('<button id = "decline-btn">DECLINE</button>'.html_safe, decline_friend_path(id: user.id))
+        link_to('<button>DECLINE</button>'.html_safe, decline_friend_path(id: user.id), id: 'decline-btn')
     elsif user != current_user && current_user.friend?(user) == false
-      link_to('request', friend_request_path(id: user.id), class: 'btn btn-secondary', id: "request-btn")
+      link_to('<button>request</button>'.html_safe, friend_request_path(id: user.id), class: 'btn btn-secondary',
+                                                                                      id: 'request-btn')
     end
   end
 end

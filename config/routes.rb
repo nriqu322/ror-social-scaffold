@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/friend_request', to: 'friendships#create'
   get '/accept_friend', to: 'friendships#update'
-  delete '/decline_friend', to: 'friendships#destroy' 
+  get '/decline_friend', to: 'friendships#destroy' 
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
