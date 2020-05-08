@@ -10,8 +10,6 @@ class FriendshipsController < ApplicationController
     friendship = Friendship.find_by_id(fs.ids)
     friendship.confirmed = true
     friendship.save
-    reverse_fs = Friendship.new(user_id: current_user.id, friend_id: params[:id], confirmed: true)
-    reverse_fs.save
     redirect_to users_path
   end
 

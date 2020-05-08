@@ -19,10 +19,10 @@ RSpec.describe 'Chekcing posts: ', type: :feature do
     @user = User.create(name: 'seth', email: 'cool@q.com', password: '12345678', password_confirmation: '12345678')
     @user2 = User.create(name: 'john', email: 'coolio2@q.com', password: '12345678', password_confirmation: '12345678')
     @user3 = User.create(name: 'carl', email: 'coolllll@q.com', password: '12345678', password_confirmation: '12345678')
-    post = Post.create(user_id: @user.id, content: "blaaaaa")
-    post = Post.create(user_id: @user2.id, content: "more blaaaaa")
-    post = Post.create(user_id: @user3.id, content: "even more blaaaaa")
-    fs = Friendship.create(user_id: @user.id, friend_id: @user2.id, confirmed: true)
+    Post.create(user_id: @user.id, content: 'blaaaaa')
+    Post.create(user_id: @user2.id, content: 'more blaaaaa')
+    Post.create(user_id: @user3.id, content: 'even more blaaaaa')
+    Friendship.create(user_id: @user.id, friend_id: @user2.id, confirmed: true)
 
     visit new_user_session_path
     fill_in 'email', with: 'cool@q.com'
