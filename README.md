@@ -37,7 +37,6 @@ Setup database with:
 ```
 
 
-
 ### Usage
 
 Start server with:
@@ -59,7 +58,7 @@ Open `http://localhost:3000/` in your browser.
 👤 **Luis Saavedra**
 - Github: [@nriqu322](https://github.com/nriqu322)
 - Twitter: [@nriqu322](https://twitter.com/nriqu322)
-- Linkedin: [Luis Saavedra](https://linkedin.com/in/luis-saavedra-sanchez/) 
+- Linkedin: [Linkedin](https://linkedin.com/in/luis-saavedra-sanchez/) 
 
 
 👤 **Seth Zea**
